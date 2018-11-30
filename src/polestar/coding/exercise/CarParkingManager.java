@@ -51,6 +51,7 @@ public class CarParkingManager {
 	
 	/**
 	 * Moves all the cars towards the entrance of parking (or towards the beginning of the car park)
+	 * Time complexity O(n), where n is the total number of car parking spaces.
 	 */
 	private synchronized void compact() {
 		int lastIndex = carParking.length()-1;
