@@ -53,7 +53,26 @@ public class CarParkingManager {
 	 * Moves all the cars towards the entrance of parking (or towards the beginning of the car park)
 	 */
 	private synchronized void compact() {
-		//To be implemented
+		int lastIndex = carParking.length()-1;
+		int firstIndex = 0;
+
+		while(firstIndex <= lastIndex) {
+			Car car = carParking.get(firstIndex);
+			if(car == null) {
+				if(carParking.get(lastIndex) != null) {
+					carParking.set(firstIndex,carParking.get(lastIndex));
+					carParking.set(lastIndex, null);
+					firstIndex++;
+					lastIndex--;
+				}
+				else {
+					lastIndex--;
+				}
+			}
+			else {
+				firstIndex++;
+			}
+		}	
 	}
 	
 	/**
